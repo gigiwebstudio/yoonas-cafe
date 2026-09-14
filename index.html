@@ -44,6 +44,12 @@
   .nav-links a:hover{color:var(--ink-on-dark);}
   .nav-cta{background:var(--brass); color:var(--charcoal); padding:11px 24px; font-size:0.84rem; font-weight:500; transition:background .25s;}
   .nav-cta:hover{background:var(--brass-bright);}
+  .nav-toggle{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px;}
+  .nav-toggle span{width:22px; height:1px; background:var(--ink-on-dark);}
+  .mobile-menu{display:none; position:fixed; top:64px; left:0; right:0; background:rgba(23,19,15,0.98); backdrop-filter:blur(10px); border-bottom:1px solid rgba(244,238,225,0.1); z-index:55; flex-direction:column; padding:1.2rem 6vw 1.8rem;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{padding:0.9rem 0; font-size:1rem; color:var(--dim-on-dark); border-bottom:1px solid rgba(244,238,225,0.08);}
+  .mobile-menu a:last-child{border-bottom:none;}
 
   .hero{
     min-height:100vh; position:relative; display:flex; align-items:flex-end;
@@ -58,7 +64,7 @@
     background-repeat:no-repeat;
     padding-bottom:5.5rem;
   }
-  .hero-content{max-width:760px;}
+  .hero-content{max-width:760px; margin:0; padding-left:6vw; padding-right:6vw;}
   .hero-tag{display:inline-flex; align-items:center; gap:0.7rem; font-size:0.8rem; letter-spacing:0.06em; color:var(--brass-bright); margin-bottom:1.6rem; text-transform:uppercase;}
   .hero h1{font-family:var(--display); font-weight:500; font-size:clamp(3rem, 7vw, 6rem); line-height:0.98; letter-spacing:-0.01em;}
   .hero h1 em{font-style:italic; font-weight:400; color:var(--brass-bright);}
@@ -128,15 +134,15 @@
   .menu-download{margin-top:1.2rem; display:inline-flex; align-items:center; gap:0.6rem; color:var(--dim-on-light); font-size:0.85rem; border-bottom:1px solid rgba(30,24,17,0.25); padding-bottom:2px; transition:color .25s, border-color .25s;}
   .menu-download:hover{color:var(--brass); border-color:var(--brass);}
 
-  .gallery-grid{display:grid; grid-template-columns:repeat(6,1fr); grid-auto-rows:130px; gap:12px;}
+  .gallery-grid{display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:170px; gap:12px;}
   .gallery-grid div{position:relative; overflow:hidden; background-size:cover; background-position:center center; background-repeat:no-repeat;}
   .gallery-grid div span{position:absolute; bottom:12px; left:14px; color:#fff; font-family:var(--display); font-style:italic; font-size:0.85rem; z-index:1;}
   .gallery-grid div::before{content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(0,0,0,0.5), transparent 60%);}
-  .g1{grid-column:span 3; grid-row:span 2; background-image:url('images/gallery-dining.png'), radial-gradient(ellipse at 30% 30%, #c9976b, transparent 55%), linear-gradient(150deg,#8a5a3a,#3a2418);}
-  .g2{grid-column:span 3; background-image:url('images/gallery-coffee.png'), radial-gradient(ellipse at 70% 40%, #b8874e, transparent 55%), linear-gradient(150deg,#5a4028,#241a12);}
-  .g3{grid-column:span 3; background-image:url('images/gallery-wine.png'), radial-gradient(ellipse at 40% 60%, #6b1f2a, transparent 55%), linear-gradient(150deg,#4a2028,#1c1214);}
-  .g4{grid-column:span 2; grid-row:span 2; background-image:url('images/gallery-dessert.png'), radial-gradient(ellipse at 60% 30%, #d3a76b, transparent 55%), linear-gradient(150deg,#6e4a30,#241a12);}
-  .g5{grid-column:span 2; grid-row:span 2; background-image:url('images/gallery-brunch.png'), radial-gradient(ellipse at 40% 70%, #a8664a, transparent 55%), linear-gradient(150deg,#3a2418,#17110d);}
+  .g1{grid-column:1/3; grid-row:1/3; background-image:url('images/gallery-dining.png'), radial-gradient(ellipse at 30% 30%, #c9976b, transparent 55%), linear-gradient(150deg,#8a5a3a,#3a2418);}
+  .g2{grid-column:3/5; grid-row:1/2; background-image:url('images/gallery-coffee.png'), radial-gradient(ellipse at 70% 40%, #b8874e, transparent 55%), linear-gradient(150deg,#5a4028,#241a12);}
+  .g3{grid-column:3/5; grid-row:2/3; background-image:url('images/gallery-wine.png'), radial-gradient(ellipse at 40% 60%, #6b1f2a, transparent 55%), linear-gradient(150deg,#4a2028,#1c1214);}
+  .g4{grid-column:1/3; grid-row:3/4; background-image:url('images/gallery-dessert.png'), radial-gradient(ellipse at 60% 30%, #d3a76b, transparent 55%), linear-gradient(150deg,#6e4a30,#241a12);}
+  .g5{grid-column:3/5; grid-row:3/4; background-image:url('images/gallery-brunch.png'), radial-gradient(ellipse at 40% 70%, #a8664a, transparent 55%), linear-gradient(150deg,#3a2418,#17110d);}
 
   .visit-grid{display:grid; grid-template-columns:1fr 1fr; gap:5rem;}
   .info-block{margin-bottom:2.4rem;}
@@ -164,13 +170,25 @@
   .footer-bottom{display:flex; justify-content:space-between; padding-top:1.8rem; font-size:0.8rem; color:var(--dim-on-dark); flex-wrap:wrap; gap:1rem;}
 
   @media (max-width:900px){
+    nav.wrap{height:64px;}
+    .logo{height:26px;}
+    .footer-brand .logo{height:40px;}
     .nav-links{display:none;}
+    .nav-toggle{display:flex;}
+    .nav-cta{padding:9px 16px; font-size:0.76rem;}
+    .hero{padding-bottom:2.6rem;}
+    .hero-content{padding-left:6vw; padding-right:6vw; max-width:100%;}
+    .hero-tag{font-size:0.68rem; margin-bottom:1rem;}
+    .hero h1{font-size:clamp(2.1rem,9vw,2.8rem); line-height:1.06;}
+    .hero p.lede{font-size:0.88rem; line-height:1.4; margin-top:0.9rem; max-width:34ch;}
+    .hero-ctas{margin-top:1.6rem; gap:0.6rem;}
+    .hero-ctas .btn-solid, .hero-ctas .btn-ghost{padding:12px 20px; font-size:0.8rem;}
     .about-grid{grid-template-columns:1fr;}
     .dish-grid{grid-template-columns:1fr; gap:1rem;}
     .dish-card{aspect-ratio:16/10;}
     .menu-items{grid-template-columns:1fr;}
-    .gallery-grid{grid-template-columns:repeat(2,1fr); grid-auto-rows:150px;}
-    .g1,.g4,.g5{grid-column:span 2; grid-row:span 1;}
+    .gallery-grid{grid-template-columns:1fr; grid-auto-rows:auto; gap:10px;}
+    .g1,.g2,.g3,.g4,.g5{grid-column:1/2; grid-row:auto; aspect-ratio:4/3;}
     .visit-grid{grid-template-columns:1fr;}
     .footer-grid{grid-template-columns:1fr; gap:2rem;}
     .menu-tab{margin-right:1.8rem; font-size:1.15rem;}
@@ -190,7 +208,14 @@
       <a href="#visit">Visit</a>
     </div>
     <a href="#visit" class="nav-cta">Reserve a Table</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">Story</a>
+    <a href="#dishes">Kitchen</a>
+    <a href="#menu">Menu</a>
+    <a href="#visit">Visit</a>
+  </div>
 </header>
 
 <main id="top">
@@ -228,9 +253,9 @@
         <p>Yoona's opened on Robson Street as two ideas at once — the neighbourhood breakfast spot people stop into before work, and the tapas room they come back to after it. Rather than pick one, we built a menu that changes with the light outside.</p>
         <p>Mornings mean scramblers, benedicts, and a slow pour of coffee. Evenings shift toward Korean-style mandu, hand-pressed smash burgers, and a pasta corner that leans Roman. Same room, same warmth — different rhythm.</p>
         <div class="stat-row">
-          <div><strong>8–1</strong><span>Breakfast Hours</span></div>
-          <div><strong>6</strong><span>Menu Sections</span></div>
-          <div><strong>1471</strong><span>Robson Street</span></div>
+          <div><strong>Local</strong><span>Neighbourhood roots</span></div>
+          <div><strong>Handmade</strong><span>Mandu, patties, sauces</span></div>
+          <div><strong>Shared</strong><span>Built for the table</span></div>
         </div>
       </div>
       <div class="photo-block"><span>Inside the dining room</span></div>
@@ -440,11 +465,11 @@
         <h2>The room on <em>Robson.</em></h2>
       </div>
       <div class="gallery-grid">
-        <div class="g1"><span>Dining room</span></div>
-        <div class="g2"><span>Aburi salmon nigiri</span></div>
-        <div class="g3"><span>Espresso bar</span></div>
-        <div class="g4"><span>Weekend brunch</span></div>
-        <div class="g5"><span>Cocktail service</span></div>
+        <div class="g1"><span>Dining Room</span></div>
+        <div class="g2"><span>Espresso Bar</span></div>
+        <div class="g3"><span>Wine Service</span></div>
+        <div class="g4"><span>Sticky Toffee Pudding</span></div>
+        <div class="g5"><span>Weekend Brunch</span></div>
       </div>
     </div>
   </section>
@@ -524,6 +549,15 @@
   const header = document.getElementById('siteHeader');
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  navToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
   });
 
   const tabs = document.querySelectorAll('.menu-tab');
