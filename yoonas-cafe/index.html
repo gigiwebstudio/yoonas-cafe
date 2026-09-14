@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yoona's Café & Tapas — 1471 Robson St, Vancouver</title>
+<meta name="description" content="Yoona's Café & Tapas on Robson Street, Vancouver. Breakfast, tapas, pasta and cocktails.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal: #17130F;
+    --charcoal-soft: #211B15;
+    --cream: #F4EEE1;
+    --ink-on-dark: #F4EEE1;
+    --ink-on-light: #1E1811;
+    --dim-on-dark: #C9BFAE;
+    --dim-on-light: #6B6153;
+    --brass: #B09173;
+    --brass-bright: #C9AC8D;
+    --wine: #6B1F2A;
+    --display: 'Fraunces', serif;
+    --sans: 'Inter', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans); font-weight:300; line-height:1.65; background:var(--charcoal); color:var(--ink-on-dark); -webkit-font-smoothing:antialiased;}
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1200px; margin:0 auto; padding:0 32px;}
+  .rule{height:1px; background:currentColor; width:36px; display:inline-block; opacity:0.7;}
+
+  header{position:fixed; top:0; left:0; right:0; z-index:60; transition:background .35s ease, border-color .35s ease; border-bottom:1px solid transparent;}
+  header.scrolled{background:rgba(23,19,15,0.92); backdrop-filter:blur(10px); border-bottom-color:rgba(244,238,225,0.1);}
+  nav.wrap{display:flex; align-items:center; justify-content:space-between; height:84px;}
+  .brand{font-family:var(--display); font-size:1.55rem; letter-spacing:0.03em; font-weight:500;}
+  .brand em{font-style:italic; color:var(--brass-bright);}
+  .nav-links{display:flex; gap:2.6rem; font-size:0.88rem;}
+  .nav-links a{color:var(--dim-on-dark); transition:color .25s;}
+  .nav-links a:hover{color:var(--ink-on-dark);}
+  .nav-cta{background:var(--brass); color:var(--charcoal); padding:11px 24px; font-size:0.84rem; font-weight:500; transition:background .25s;}
+  .nav-cta:hover{background:var(--brass-bright);}
+
+  .hero{
+    min-height:100vh; position:relative; display:flex; align-items:flex-end;
+    background-image:
+      url('images/hero.png'),
+      linear-gradient(180deg, rgba(23,19,15,0.1) 0%, rgba(23,19,15,0.6) 55%, rgba(23,19,15,0.97) 100%),
+      radial-gradient(ellipse at 28% 22%, #4a3420 0%, transparent 45%),
+      radial-gradient(ellipse at 78% 62%, #4a1f24 0%, transparent 50%),
+      linear-gradient(135deg, #2b2117 0%, #1c1712 60%, #17130F 100%);
+    background-size:cover, auto, auto, auto, auto;
+    background-position:center;
+    background-repeat:no-repeat;
+    padding-bottom:5.5rem;
+  }
+  .hero-content{max-width:760px;}
+  .hero-tag{display:inline-flex; align-items:center; gap:0.7rem; font-size:0.8rem; letter-spacing:0.06em; color:var(--brass-bright); margin-bottom:1.6rem; text-transform:uppercase;}
+  .hero h1{font-family:var(--display); font-weight:500; font-size:clamp(3rem, 7vw, 6rem); line-height:0.98; letter-spacing:-0.01em;}
+  .hero h1 em{font-style:italic; font-weight:400; color:var(--brass-bright);}
+  .hero p.lede{max-width:44ch; margin-top:1.8rem; color:var(--dim-on-dark); font-size:1.1rem;}
+  .hero-ctas{display:flex; gap:1rem; margin-top:2.6rem; flex-wrap:wrap;}
+  .btn-solid{background:var(--brass); color:var(--charcoal); padding:16px 34px; font-size:0.9rem; font-weight:500; transition:background .25s, transform .25s; display:inline-block;}
+  .btn-solid:hover{background:var(--brass-bright); transform:translateY(-2px);}
+  .btn-ghost{border:1px solid rgba(244,238,225,0.35); color:var(--ink-on-dark); padding:16px 34px; font-size:0.9rem; transition:border-color .25s; display:inline-block;}
+  .btn-ghost:hover{border-color:var(--brass-bright); color:var(--brass-bright);}
+
+  .marquee{background:var(--brass); color:var(--charcoal); overflow:hidden; padding:1rem 0;}
+  .marquee-track{display:flex; width:max-content; gap:3rem; white-space:nowrap; animation:scroll 26s linear infinite; font-family:var(--display); font-style:italic; font-size:1.1rem; font-weight:500;}
+  .marquee-track span{display:flex; align-items:center; gap:3rem;}
+  .marquee-track span::after{content:"•"; opacity:0.5; font-style:normal;}
+  @keyframes scroll{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+  section{padding:8rem 0;}
+  .light{background:var(--cream); color:var(--ink-on-light);}
+  .section-head{max-width:680px; margin-bottom:3.6rem;}
+  .kicker{display:inline-flex; align-items:center; gap:0.7rem; font-size:0.8rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--brass-bright); margin-bottom:1.2rem;}
+  .light .kicker{color:var(--brass);}
+  .section-head h2{font-family:var(--display); font-weight:500; font-size:clamp(2.2rem, 3.8vw, 3.4rem); line-height:1.08;}
+  .section-head h2 em{font-style:italic; font-weight:400; color:var(--brass-bright);}
+  .light .section-head h2 em{color:var(--brass);}
+  .section-head p{margin-top:1.2rem; max-width:56ch; color:var(--dim-on-dark);}
+  .light .section-head p{color:var(--dim-on-light);}
+
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center;}
+  .photo-block{aspect-ratio:4/5; position:relative; overflow:hidden; background-image:url('images/about.png'), radial-gradient(ellipse at 30% 20%, #d9b98a, transparent 55%), radial-gradient(ellipse at 75% 75%, #8a4a3a, transparent 55%), linear-gradient(150deg, #b98a55, #6e4a30); background-size:cover, auto, auto, auto; background-position:center; background-repeat:no-repeat;}
+  .photo-block span{position:absolute; bottom:1.4rem; left:1.4rem; font-family:var(--display); font-style:italic; color:#fff; font-size:0.95rem; background:rgba(23,19,15,0.4); padding:6px 14px; backdrop-filter:blur(4px);}
+  .about-copy p{color:var(--dim-on-light); margin-top:1.2rem; max-width:52ch;}
+  .about-copy p:first-of-type{margin-top:1.6rem;}
+  .stat-row{display:flex; gap:3rem; margin-top:2.8rem; padding-top:2.2rem; border-top:1px solid rgba(30,24,17,0.14);}
+  .stat-row div strong{display:block; font-family:var(--display); font-size:2.1rem; color:var(--brass); font-weight:500;}
+  .stat-row div span{font-size:0.8rem; color:var(--dim-on-light);}
+
+  .dish-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1.6rem;}
+  .dish-card{aspect-ratio:3/4; position:relative; overflow:hidden;}
+  .dish-card .photo{position:absolute; inset:0; transition:transform .6s ease; background-size:cover; background-position:center; background-repeat:no-repeat;}
+  .dish-card:hover .photo{transform:scale(1.06);}
+  .dish-card:nth-child(1) .photo{background-image:url('images/dish-salmon.png'), radial-gradient(ellipse at 40% 30%, #c96b4a, transparent 60%), radial-gradient(ellipse at 70% 80%, #7a2e1f, transparent 55%), linear-gradient(160deg,#3a2418,#1c130d);}
+  .dish-card:nth-child(2) .photo{background-image:url('images/dish-smash.png'), radial-gradient(ellipse at 60% 25%, #d3a76b, transparent 60%), radial-gradient(ellipse at 20% 80%, #4a3a1f, transparent 55%), linear-gradient(160deg,#332a1a,#1a150d);}
+  .dish-card:nth-child(3) .photo{background-image:url('images/dish-steak.png'), radial-gradient(ellipse at 35% 70%, #6b1f2a, transparent 60%), radial-gradient(ellipse at 75% 20%, #b8874e, transparent 55%), linear-gradient(160deg,#2a1815,#17110d);}
+  .dish-card::after{content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(23,19,15,0.92) 0%, rgba(23,19,15,0.1) 55%);}
+  .dish-info{position:absolute; left:0; right:0; bottom:0; padding:1.8rem; z-index:2;}
+  .dish-info .cat{font-size:0.76rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--brass-bright); margin-bottom:0.4rem;}
+  .dish-info h3{font-family:var(--display); font-size:1.5rem; font-weight:500;}
+  .dish-info p{font-size:0.86rem; color:var(--dim-on-dark); margin-top:0.4rem;}
+  .dish-info .price{font-family:var(--display); color:var(--brass-bright); font-size:1.1rem; margin-top:0.6rem;}
+
+  .menu-tabs{display:flex; border-bottom:1px solid rgba(30,24,17,0.15); margin-bottom:0;}
+  .menu-tab{font-family:var(--display); font-size:1.4rem; font-weight:500; padding:0 0 1.1rem 0; margin-right:3.2rem; color:var(--dim-on-light); background:none; border:none; cursor:pointer; position:relative; border-bottom:2px solid transparent; transition:color .25s;}
+  .menu-tab.active{color:var(--ink-on-light);}
+  .menu-tab.active::after{content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px; background:var(--brass);}
+  .menu-panel{display:none; padding-top:3.2rem;}
+  .menu-panel.active{display:block;}
+  .menu-note{font-size:0.86rem; color:var(--dim-on-light); margin-bottom:2.8rem; font-style:italic; font-family:var(--display);}
+  .menu-category{margin-bottom:3.4rem;}
+  .menu-category h3{font-family:var(--display); font-size:1.5rem; color:var(--brass); font-weight:500; margin-bottom:1.6rem; padding-bottom:0.8rem; border-bottom:1px solid rgba(30,24,17,0.12);}
+  .menu-category h3 small{font-family:var(--sans); font-size:0.78rem; color:var(--dim-on-light); font-weight:300; margin-left:0.6rem;}
+  .menu-items{display:grid; grid-template-columns:1fr 1fr; gap:1.9rem 3.2rem;}
+  .menu-item{display:flex; justify-content:space-between; gap:1rem; align-items:baseline;}
+  .menu-item-name{font-size:1.02rem; font-weight:400;}
+  .menu-item-desc{font-size:0.85rem; color:var(--dim-on-light); margin-top:0.3rem;}
+  .menu-item-price{font-family:var(--display); color:var(--brass); font-size:1.1rem; white-space:nowrap; padding-left:0.5rem;}
+  .menu-item-left{flex:1;}
+  .menu-download{margin-top:1.2rem; display:inline-flex; align-items:center; gap:0.6rem; color:var(--dim-on-light); font-size:0.85rem; border-bottom:1px solid rgba(30,24,17,0.25); padding-bottom:2px; transition:color .25s, border-color .25s;}
+  .menu-download:hover{color:var(--brass); border-color:var(--brass);}
+
+  .gallery-grid{display:grid; grid-template-columns:repeat(6,1fr); grid-auto-rows:130px; gap:12px;}
+  .gallery-grid div{position:relative; overflow:hidden; background-size:cover; background-position:center; background-repeat:no-repeat;}
+  .gallery-grid div span{position:absolute; bottom:12px; left:14px; color:#fff; font-family:var(--display); font-style:italic; font-size:0.85rem; z-index:1;}
+  .gallery-grid div::before{content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(0,0,0,0.5), transparent 60%);}
+  .g1{grid-column:span 3; grid-row:span 2; background-image:url('images/gallery-dining.png'), radial-gradient(ellipse at 30% 30%, #c9976b, transparent 55%), linear-gradient(150deg,#8a5a3a,#3a2418);}
+  .g2{grid-column:span 3; background-image:url('images/gallery-coffee.png'), radial-gradient(ellipse at 70% 40%, #b8874e, transparent 55%), linear-gradient(150deg,#5a4028,#241a12);}
+  .g3{grid-column:span 3; background-image:url('images/gallery-wine.png'), radial-gradient(ellipse at 40% 60%, #6b1f2a, transparent 55%), linear-gradient(150deg,#4a2028,#1c1214);}
+  .g4{grid-column:span 2; grid-row:span 2; background-image:url('images/gallery-dessert.png'), radial-gradient(ellipse at 60% 30%, #d3a76b, transparent 55%), linear-gradient(150deg,#6e4a30,#241a12);}
+  .g5{grid-column:span 2; grid-row:span 2; background-image:url('images/gallery-brunch.png'), radial-gradient(ellipse at 40% 70%, #a8664a, transparent 55%), linear-gradient(150deg,#3a2418,#17110d);}
+
+  .visit-grid{display:grid; grid-template-columns:1fr 1fr; gap:5rem;}
+  .info-block{margin-bottom:2.4rem;}
+  .info-block h4{font-family:var(--display); color:var(--brass-bright); font-size:1.15rem; font-weight:500; margin-bottom:0.6rem;}
+  .info-block p, .info-block a{color:var(--dim-on-dark); font-size:0.98rem;}
+  .info-block a:hover{color:var(--ink-on-dark);}
+  .hours-row{display:flex; justify-content:space-between; padding:0.6rem 0; border-bottom:1px solid rgba(244,238,225,0.1); font-size:0.92rem;}
+  .hours-row span:first-child{color:var(--ink-on-dark);}
+  .hours-row span:last-child{color:var(--dim-on-dark);}
+  .map-box{border:1px solid rgba(244,238,225,0.15); aspect-ratio:4/3.4; overflow:hidden;}
+  .map-box iframe{width:100%; height:100%; border:0; filter:sepia(0.35) saturate(0.6) brightness(0.85) contrast(1.05);}
+
+  .cta-band{background:linear-gradient(120deg, var(--wine), #4a1620); text-align:center;}
+  .cta-band h2{font-family:var(--display); font-weight:500; font-size:clamp(2.2rem,4.4vw,3.6rem); max-width:18ch; margin:0 auto 2.2rem; line-height:1.08;}
+  .cta-band h2 em{font-style:italic; color:var(--brass-bright);}
+  .cta-band .hero-ctas{justify-content:center;}
+
+  footer{padding:4.5rem 0 2.6rem; background:var(--charcoal-soft);}
+  .footer-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:3rem; padding-bottom:3rem; border-bottom:1px solid rgba(244,238,225,0.1);}
+  .footer-brand .brand{display:block; margin-bottom:1.1rem;}
+  .footer-brand p{color:var(--dim-on-dark); font-size:0.9rem; max-width:32ch;}
+  .footer-col h5{font-size:0.8rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--dim-on-dark); margin-bottom:1.1rem;}
+  .footer-col a, .footer-col p{display:block; font-size:0.92rem; margin-bottom:0.75rem; color:var(--dim-on-dark);}
+  .footer-col a:hover{color:var(--brass-bright);}
+  .footer-bottom{display:flex; justify-content:space-between; padding-top:1.8rem; font-size:0.8rem; color:var(--dim-on-dark); flex-wrap:wrap; gap:1rem;}
+
+  @media (max-width:900px){
+    .nav-links{display:none;}
+    .about-grid{grid-template-columns:1fr;}
+    .dish-grid{grid-template-columns:1fr; gap:1rem;}
+    .dish-card{aspect-ratio:16/10;}
+    .menu-items{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr); grid-auto-rows:150px;}
+    .g1,.g4,.g5{grid-column:span 2; grid-row:span 1;}
+    .visit-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr; gap:2rem;}
+    .menu-tab{margin-right:1.8rem; font-size:1.15rem;}
+    section{padding:5.5rem 0;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <nav class="wrap">
+    <a href="#top" class="brand">Yoona<em>'</em>s</a>
+    <div class="nav-links">
+      <a href="#about">Story</a>
+      <a href="#dishes">Kitchen</a>
+      <a href="#menu">Menu</a>
+      <a href="#visit">Visit</a>
+    </div>
+    <a href="#visit" class="nav-cta">Reserve a Table</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-content">
+      <div class="hero-tag"><span class="rule"></span>1471 Robson Street, Vancouver</div>
+      <h1>Where breakfast<br>turns into <em>tapas.</em></h1>
+      <p class="lede">A neighbourhood café that starts the day with eggs and espresso, and lets the evening slide into small plates, pasta, and something poured over ice.</p>
+      <div class="hero-ctas">
+        <a href="#menu" class="btn-solid">Explore the Menu</a>
+        <a href="tel:7789971471" class="btn-ghost">Reserve · 778 997 1471</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Breakfast Daily 8am–1pm</span>
+      <span>Tapas & Handhelds</span>
+      <span>House Pasta</span>
+      <span>1471 Robson Street</span>
+      <span>Breakfast Daily 8am–1pm</span>
+      <span>Tapas & Handhelds</span>
+      <span>House Pasta</span>
+      <span>1471 Robson Street</span>
+    </div>
+  </div>
+
+  <section class="light" id="about">
+    <div class="wrap about-grid">
+      <div class="about-copy">
+        <p class="kicker"><span class="rule"></span>Our Story</p>
+        <h2>A café that never <em>chose sides.</em></h2>
+        <p>Yoona's opened on Robson Street as two ideas at once — the neighbourhood breakfast spot people stop into before work, and the tapas room they come back to after it. Rather than pick one, we built a menu that changes with the light outside.</p>
+        <p>Mornings mean scramblers, benedicts, and a slow pour of coffee. Evenings shift toward Korean-style mandu, hand-pressed smash burgers, and a pasta corner that leans Roman. Same room, same warmth — different rhythm.</p>
+        <div class="stat-row">
+          <div><strong>8–1</strong><span>Breakfast Hours</span></div>
+          <div><strong>6</strong><span>Menu Sections</span></div>
+          <div><strong>1471</strong><span>Robson Street</span></div>
+        </div>
+      </div>
+      <div class="photo-block"><span>Inside the dining room</span></div>
+    </div>
+  </section>
+
+  <section id="dishes">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker"><span class="rule"></span>From the Kitchen</p>
+        <h2>New + notable <em>this season.</em></h2>
+      </div>
+      <div class="dish-grid">
+        <div class="dish-card">
+          <div class="photo"></div>
+          <div class="dish-info">
+            <div class="cat">Tapas</div>
+            <h3>Aburi Salmon Nigiri</h3>
+            <p>Flame-seared salmon, seasoned rice, signature sauce</p>
+            <div class="price">$18</div>
+          </div>
+        </div>
+        <div class="dish-card">
+          <div class="photo"></div>
+          <div class="dish-info">
+            <div class="cat">Handheld</div>
+            <h3>Yoona's Signature Smash</h3>
+            <p>Two smashed patties, bacon, aged cheddar</p>
+            <div class="price">$25</div>
+          </div>
+        </div>
+        <div class="dish-card">
+          <div class="photo"></div>
+          <div class="dish-info">
+            <div class="cat">Mains</div>
+            <h3>Manhattan Peppercorn Steak</h3>
+            <p>10oz NY strip, peppercorn sauce, garlic mash</p>
+            <div class="price">$39</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light" id="menu">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker"><span class="rule"></span>The Menu</p>
+        <h2>Two menus, <em>one kitchen.</em></h2>
+        <p>Breakfast runs 8am to 1pm daily. Dinner picks up from there — tapas, handhelds, pasta, and mains built for sharing.</p>
+      </div>
+
+      <div class="menu-tabs">
+        <button class="menu-tab active" data-tab="breakfast">Breakfast</button>
+        <button class="menu-tab" data-tab="dinner">Dinner</button>
+      </div>
+
+      <div class="menu-panel active" id="breakfast">
+        <p class="menu-note">Served 8am – 1pm, daily.</p>
+
+        <div class="menu-category">
+          <h3>Yoona's Breakfast Special</h3>
+          <div class="menu-items">
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">1471 Breakfast</div><div class="menu-item-desc">2 eggs, toast & choice of meat — served with fruits or hashbrowns</div></div><div class="menu-item-price">$17</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Avocado Elite</div><div class="menu-item-desc">2 slices multi-grain toast, avocado, choice of eggs, greens & fresh fruits</div></div><div class="menu-item-price">$17</div></div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3>Scramblers <small>3 eggs, toast & hashbrown or fresh fruit</small></h3>
+          <div class="menu-items">
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Sunrise Fresh Garden</div><div class="menu-item-desc">Spinach, tomatoes, mushroom, onion, peppers & feta</div></div><div class="menu-item-price">$18</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Carnivore</div><div class="menu-item-desc">Ham, bacon, sausage, peppers, tomatoes</div></div><div class="menu-item-price">$20</div></div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3>Omelettes <small>3 eggs, toast & hashbrown or fresh fruit</small></h3>
+          <div class="menu-items">
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Garden Symphony</div><div class="menu-item-desc">Spinach, mushrooms, peppers & asparagus, feta</div></div><div class="menu-item-price">$18</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">The Butcher Reserve</div><div class="menu-item-desc">Bacon, sausage, ham, sliced NY steak, melted cheddar</div></div><div class="menu-item-price">$22</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Seafarer</div><div class="menu-item-desc">Smoked sockeye salmon, cream cheese, tomatoes, green onions</div></div><div class="menu-item-price">$22</div></div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3>Benedicts <small>toasted muffin, poached eggs, hollandaise</small></h3>
+          <div class="menu-items">
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Magic Mushroom</div><div class="menu-item-desc">Sautéed mushrooms & spinach</div></div><div class="menu-item-price">$17</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Canucks Ham & Cheese</div><div class="menu-item-desc">Maple smoked ham, swiss cheese</div></div><div class="menu-item-price">$18</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Nashville Chicken</div><div class="menu-item-desc">Nashville style spicy chicken & corn</div></div><div class="menu-item-price">$20</div></div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3>Sandwiches</h3>
+          <div class="menu-items">
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Croque-Madame</div><div class="menu-item-desc">Ham, Gruyère, béchamel, fried egg</div></div><div class="menu-item-price">$23.50</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Smoked Salmon Florentine Melt</div><div class="menu-item-desc">Salmon, spinach, herb cream cheese, grilled bread</div></div><div class="menu-item-price">$22.50</div></div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3>Sweet Beginnings</h3>
+          <div class="menu-items">
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Buttermilk Pancakes</div><div class="menu-item-desc">Whipped cream, warm maple syrup, fresh fruit</div></div><div class="menu-item-price">$18</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Belgian Waffles</div><div class="menu-item-desc">Crisp exterior, airy interior, whipped butter & maple</div></div><div class="menu-item-price">$18</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Vanilla Dream French Toast</div><div class="menu-item-desc">Vanilla ice cream, banana, chocolate drizzle</div></div><div class="menu-item-price">$20</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">All Day Poutine</div><div class="menu-item-desc">Gravy, cheese curd & candied bacon</div></div><div class="menu-item-price">$17</div></div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3>Extras & Drinks</h3>
+          <div class="menu-items">
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Bacon (3 strips) / Hashbrowns / Avocado</div><div class="menu-item-desc">$7 / $5 / $6</div></div><div class="menu-item-price"></div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Cappuccino / Latte / Americano</div><div class="menu-item-desc">$6 / $5.50 / $5.50</div></div><div class="menu-item-price"></div></div>
+          </div>
+        </div>
+
+        <a class="menu-download" href="menus/Yoonas_Breakfast_Menu.pdf" target="_blank">Download full breakfast menu (PDF) ↓</a>
+      </div>
+
+      <div class="menu-panel" id="dinner">
+        <p class="menu-note">Served from 1pm.</p>
+
+        <div class="menu-category">
+          <h3>Tapas & Appetizers</h3>
+          <div class="menu-items">
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Aburi Salmon Nigiri</div><div class="menu-item-desc">Flame-seared salmon, sushi rice, signature sauce</div></div><div class="menu-item-price">$18</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Brussels Sprouts</div><div class="menu-item-desc">Crispy fried, parmesan, garlic, chili & lemon</div></div><div class="menu-item-price">$15</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Wings</div><div class="menu-item-desc">Salt & pepper, Cajun, lemon pepper or mango habanero</div></div><div class="menu-item-price">$12</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Truffle Fries</div><div class="menu-item-desc">White truffle aioli, grated parmesan</div></div><div class="menu-item-price">$13</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Fiesta Loaded Nachos</div><div class="menu-item-desc">Mixed cheddar, jack, mozzarella, salsa, guac (+chicken/pork/beef $7)</div></div><div class="menu-item-price">$20</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">The Bombay Calamari</div><div class="menu-item-desc">Jalapeño, yuzu aioli, cucumber, curry leaves, peanut</div></div><div class="menu-item-price">$20</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Chef's Taco Selection</div><div class="menu-item-desc">Baja shrimp, fish, or pulled pork — three tacos</div></div><div class="menu-item-price">$20</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Ahi Tuna Tataki</div><div class="menu-item-desc">Wontons or cucumber, avocado, poke sauce, wasabi aioli</div></div><div class="menu-item-price">$18</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Pork Mandu</div><div class="menu-item-desc">Korean-style dumplings, house soy dipping sauce</div></div><div class="menu-item-price">$18</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Fish and Chips</div><div class="menu-item-desc">Beer battered, spicy pickle tartar, greens, fries</div></div><div class="menu-item-price">$22</div></div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3>Handhelds <small>served with fries</small></h3>
+          <div class="menu-items">
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Magic Mushroom</div><div class="menu-item-desc">Beef patty, caramelized onion, portobello, boursin, arugula</div></div><div class="menu-item-price">$22</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Yoona's Signature Smash</div><div class="menu-item-desc">2 smashed patties, bacon, onion, aged cheddar</div></div><div class="menu-item-price">$25</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Ocean Breeze COD Burger</div><div class="menu-item-desc">Old bay seasoning, spicy pickle tartar</div></div><div class="menu-item-price">$24</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Nashville Hot Chicken Brioche</div><div class="menu-item-desc">Buttermilk fried chicken, pickled cucumber</div></div><div class="menu-item-price">$22</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">House Vegan Stack</div><div class="menu-item-desc">Plant-based patty, arugula, avocado, vegan aioli</div></div><div class="menu-item-price">$22</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Slow-Roasted Pork Panini</div><div class="menu-item-desc">BBQ pulled pork, caramelized onions, peppers</div></div><div class="menu-item-price">$22</div></div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3>La Pasta Corner</h3>
+          <div class="menu-items">
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Truffle Mushroom Alfredo</div><div class="menu-item-desc">Fettuccine, parmesan alfredo, mushrooms, truffle oil</div></div><div class="menu-item-price">$22</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Creamy Cajun Chicken</div><div class="menu-item-desc">Penne, cajun parmesan sauce, grilled chicken</div></div><div class="menu-item-price">$24</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Seafood Rosé Linguine</div><div class="menu-item-desc">Prawns, mussels, calamari, rosé sauce</div></div><div class="menu-item-price">$24</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Spicy Garlic Prawn Linguine</div><div class="menu-item-desc">Roasted garlic, cherry tomatoes, chili flakes</div></div><div class="menu-item-price">$26</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Mediterranean Garden Pasta</div><div class="menu-item-desc">Zucchini, peppers, spinach, feta, herbs</div></div><div class="menu-item-price">$22</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Roman Carbonara</div><div class="menu-item-desc">Parmesan cream, crispy bacon, cracked pepper</div></div><div class="menu-item-price">$23</div></div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3>Soups & Salads</h3>
+          <div class="menu-items">
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Bangkok Coconut Chicken</div><div class="menu-item-desc">Lemongrass, ginger, garlic, coconut broth</div></div><div class="menu-item-price">$14</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Harbour Clam Chowder</div><div class="menu-item-desc">Clams, potatoes, celery, crispy bacon</div></div><div class="menu-item-price">$13</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Santorini Avocado Salad</div><div class="menu-item-desc">Chickpeas, feta, pita, tzatziki (+chicken $7)</div></div><div class="menu-item-price">$18</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Roman Caesar Salad</div><div class="menu-item-desc">Parmesan, bacon, garlic croutons (+chicken $7)</div></div><div class="menu-item-price">$13</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Maple Harvest Salmon Salad</div><div class="menu-item-desc">Maple-glazed salmon, strawberries, candied walnuts, goat cheese</div></div><div class="menu-item-price">$24</div></div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3>Mains</h3>
+          <div class="menu-items">
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Dragon Teriyaki Bowl</div><div class="menu-item-desc">Chicken, vegetables, jasmine rice, teriyaki glaze</div></div><div class="menu-item-price">$24</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Manhattan Peppercorn Steak</div><div class="menu-item-desc">10oz NY strip, peppercorn sauce, garlic mash</div></div><div class="menu-item-price">$39</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Delhi Butter Chicken</div><div class="menu-item-desc">Tandoori chicken, tomato butter sauce, jasmine rice</div></div><div class="menu-item-price">$26</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Cajun Blackened Chicken</div><div class="menu-item-desc">Garlic mashed potatoes, seasonal vegetables</div></div><div class="menu-item-price">$26</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">West Coast Butter Salmon</div><div class="menu-item-desc">7oz Atlantic salmon, garlic herb butter</div></div><div class="menu-item-price">$29</div></div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3>The Sweet Finale</h3>
+          <div class="menu-items">
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Vanilla Bean Delight</div><div class="menu-item-desc">Two scoops of vanilla bean ice cream</div></div><div class="menu-item-price">$7</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Classic Sticky Toffee Pudding</div><div class="menu-item-desc">Date sponge cake, house sauce, ice cream</div></div><div class="menu-item-price">$13</div></div>
+            <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Drunken Doughnuts</div><div class="menu-item-desc">10 mini donuts, two dipping sauces</div></div><div class="menu-item-price">$12</div></div>
+          </div>
+        </div>
+
+        <a class="menu-download" href="menus/Yoonas_Dinner_Menu.pdf" target="_blank">Download full dinner menu (PDF) ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker"><span class="rule"></span>Inside Yoona's</p>
+        <h2>The room on <em>Robson.</em></h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="g1"><span>Dining room</span></div>
+        <div class="g2"><span>Aburi salmon nigiri</span></div>
+        <div class="g3"><span>Espresso bar</span></div>
+        <div class="g4"><span>Weekend brunch</span></div>
+        <div class="g5"><span>Cocktail service</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap visit-grid">
+      <div>
+        <p class="kicker"><span class="rule"></span>Visit</p>
+        <h2 style="font-family:var(--display); font-weight:500; font-size:2.4rem; margin-bottom:2.4rem;">Find us on <em style="font-style:italic; color:var(--brass-bright);">Robson.</em></h2>
+
+        <div class="info-block">
+          <h4>Address</h4>
+          <p>1471 Robson St,<br>Vancouver, BC V6G 1C1</p>
+        </div>
+        <div class="info-block">
+          <h4>Contact</h4>
+          <p><a href="tel:7789971471">778 997 1471</a></p>
+          <p><a href="mailto:info@yoonascafe.com">info@yoonascafe.com</a></p>
+        </div>
+        <div class="info-block">
+          <h4>Hours</h4>
+          <div class="hours-row"><span>Breakfast</span><span>Daily, 8am – 1pm</span></div>
+          <div class="hours-row"><span>Dinner</span><span>Daily, from 1pm</span></div>
+        </div>
+        <div class="hero-ctas" style="margin-top:2rem;">
+          <a href="tel:7789971471" class="btn-solid">Call to Reserve</a>
+          <a href="https://instagram.com" target="_blank" class="btn-ghost">Follow on Instagram</a>
+        </div>
+      </div>
+      <div class="map-box">
+        <iframe src="https://www.google.com/maps?q=1471+Robson+St,+Vancouver,+BC&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Breakfast at eight. <em>Tapas after one.</em></h2>
+      <div class="hero-ctas">
+        <a href="#menu" class="btn-solid">See the Full Menu</a>
+        <a href="tel:7789971471" class="btn-ghost">778 997 1471</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand">Yoona<em>'</em>s</span>
+        <p>Café & Tapas on Robson Street — eggs in the morning, small plates after dark.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <a href="#about">Story</a>
+        <a href="#dishes">Kitchen</a>
+        <a href="#menu">Menu</a>
+        <a href="#visit">Visit</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <p>1471 Robson St, Vancouver, BC</p>
+        <a href="tel:7789971471">778 997 1471</a>
+        <a href="mailto:info@yoonascafe.com">info@yoonascafe.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Yoona's Café & Tapas</span>
+      <span>Vancouver, BC</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  const tabs = document.querySelectorAll('.menu-tab');
+  const panels = document.querySelectorAll('.menu-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
