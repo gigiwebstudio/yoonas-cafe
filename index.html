@@ -35,6 +35,8 @@
   nav.wrap{display:flex; align-items:center; justify-content:space-between; height:84px;}
   .brand{font-family:var(--display); font-size:1.55rem; letter-spacing:0.03em; font-weight:500;}
   .brand em{font-style:italic; color:var(--brass-bright);}
+  .logo{height:38px; width:auto; display:block;}
+  .footer-brand .logo{height:52px; margin-bottom:1.1rem;}
   .nav-links{display:flex; gap:2.6rem; font-size:0.88rem;}
   .nav-links a{color:var(--dim-on-dark); transition:color .25s;}
   .nav-links a:hover{color:var(--ink-on-dark);}
@@ -50,7 +52,7 @@
       radial-gradient(ellipse at 78% 62%, #4a1f24 0%, transparent 50%),
       linear-gradient(135deg, #2b2117 0%, #1c1712 60%, #17130F 100%);
     background-size:cover, auto, auto, auto, auto;
-    background-position:center;
+    background-position:center center;
     background-repeat:no-repeat;
     padding-bottom:5.5rem;
   }
@@ -83,7 +85,7 @@
   .light .section-head p{color:var(--dim-on-light);}
 
   .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center;}
-  .photo-block{aspect-ratio:4/5; position:relative; overflow:hidden; background-image:url('images/about.png'), radial-gradient(ellipse at 30% 20%, #d9b98a, transparent 55%), radial-gradient(ellipse at 75% 75%, #8a4a3a, transparent 55%), linear-gradient(150deg, #b98a55, #6e4a30); background-size:cover, auto, auto, auto; background-position:center; background-repeat:no-repeat;}
+  .photo-block{aspect-ratio:4/5; position:relative; overflow:hidden; background-image:url('images/about.png'), radial-gradient(ellipse at 30% 20%, #d9b98a, transparent 55%), radial-gradient(ellipse at 75% 75%, #8a4a3a, transparent 55%), linear-gradient(150deg, #b98a55, #6e4a30); background-size:cover, auto, auto, auto; background-position:center center; background-repeat:no-repeat;}
   .photo-block span{position:absolute; bottom:1.4rem; left:1.4rem; font-family:var(--display); font-style:italic; color:#fff; font-size:0.95rem; background:rgba(23,19,15,0.4); padding:6px 14px; backdrop-filter:blur(4px);}
   .about-copy p{color:var(--dim-on-light); margin-top:1.2rem; max-width:52ch;}
   .about-copy p:first-of-type{margin-top:1.6rem;}
@@ -93,7 +95,7 @@
 
   .dish-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1.6rem;}
   .dish-card{aspect-ratio:3/4; position:relative; overflow:hidden;}
-  .dish-card .photo{position:absolute; inset:0; transition:transform .6s ease; background-size:cover; background-position:center; background-repeat:no-repeat;}
+  .dish-card .photo{position:absolute; inset:0; transition:transform .6s ease; background-size:cover; background-position:center center; background-repeat:no-repeat;}
   .dish-card:hover .photo{transform:scale(1.06);}
   .dish-card:nth-child(1) .photo{background-image:url('images/dish-salmon.png'), radial-gradient(ellipse at 40% 30%, #c96b4a, transparent 60%), radial-gradient(ellipse at 70% 80%, #7a2e1f, transparent 55%), linear-gradient(160deg,#3a2418,#1c130d);}
   .dish-card:nth-child(2) .photo{background-image:url('images/dish-smash.png'), radial-gradient(ellipse at 60% 25%, #d3a76b, transparent 60%), radial-gradient(ellipse at 20% 80%, #4a3a1f, transparent 55%), linear-gradient(160deg,#332a1a,#1a150d);}
@@ -125,7 +127,7 @@
   .menu-download:hover{color:var(--brass); border-color:var(--brass);}
 
   .gallery-grid{display:grid; grid-template-columns:repeat(6,1fr); grid-auto-rows:130px; gap:12px;}
-  .gallery-grid div{position:relative; overflow:hidden; background-size:cover; background-position:center; background-repeat:no-repeat;}
+  .gallery-grid div{position:relative; overflow:hidden; background-size:cover; background-position:center center; background-repeat:no-repeat;}
   .gallery-grid div span{position:absolute; bottom:12px; left:14px; color:#fff; font-family:var(--display); font-style:italic; font-size:0.85rem; z-index:1;}
   .gallery-grid div::before{content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(0,0,0,0.5), transparent 60%);}
   .g1{grid-column:span 3; grid-row:span 2; background-image:url('images/gallery-dining.png'), radial-gradient(ellipse at 30% 30%, #c9976b, transparent 55%), linear-gradient(150deg,#8a5a3a,#3a2418);}
@@ -178,7 +180,7 @@
 
 <header id="siteHeader">
   <nav class="wrap">
-    <a href="#top" class="brand">Yoona<em>'</em>s</a>
+    <a href="#top" class="brand"><img class="logo" src="images/logo.png" alt="Yoona's Café & Tapas"></a>
     <div class="nav-links">
       <a href="#about">Story</a>
       <a href="#dishes">Kitchen</a>
@@ -492,7 +494,7 @@
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <span class="brand">Yoona<em>'</em>s</span>
+        <img class="logo" src="images/logo.png" alt="Yoona's Café & Tapas">
         <p>Café & Tapas on Robson Street — eggs in the morning, small plates after dark.</p>
       </div>
       <div class="footer-col">
