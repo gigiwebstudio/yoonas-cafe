@@ -158,15 +158,15 @@
   .menu-download{margin-top:1.2rem; display:inline-flex; align-items:center; gap:0.6rem; color:var(--dim-on-light); font-size:0.85rem; border-bottom:1px solid rgba(30,24,17,0.25); padding-bottom:2px; transition:color .25s, border-color .25s;}
   .menu-download:hover{color:var(--brass); border-color:var(--brass);}
 
-  .gallery-grid{display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:170px; gap:12px;}
+  .gallery-grid{display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:260px; gap:12px;}
   .gallery-grid div{position:relative; overflow:hidden; background-size:cover; background-position:center center; background-repeat:no-repeat;}
   .gallery-grid div span{position:absolute; bottom:12px; left:14px; color:#fff; font-family:var(--display); font-style:italic; font-size:0.85rem; z-index:1;}
   .gallery-grid div::before{content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(0,0,0,0.5), transparent 60%);}
   .g1{grid-column:1/3; grid-row:1/3; background-image:url('images/gallery-cheers.jpg'), radial-gradient(ellipse at 30% 30%, #c9976b, transparent 55%), linear-gradient(150deg,#8a5a3a,#3a2418);}
   .g2{grid-column:3/5; grid-row:1/2; background-image:url('images/gallery-spread.jpg'), radial-gradient(ellipse at 70% 40%, #b8874e, transparent 55%), linear-gradient(150deg,#5a4028,#241a12);}
-  .g3{grid-column:3/5; grid-row:2/3; background-image:url('images/gallery-benedict.jpg'), radial-gradient(ellipse at 40% 60%, #6b1f2a, transparent 55%), linear-gradient(150deg,#4a2028,#1c1214);}
-  .g4{grid-column:1/3; grid-row:3/4; background-image:url('images/gallery-waffles.jpg'), radial-gradient(ellipse at 60% 30%, #d3a76b, transparent 55%), linear-gradient(150deg,#6e4a30,#241a12);}
-  .g5{grid-column:3/5; grid-row:3/4; background-image:url('images/gallery-breakfast.jpg'), radial-gradient(ellipse at 40% 70%, #a8664a, transparent 55%), linear-gradient(150deg,#3a2418,#17110d);}
+  .g3{grid-column:3/4; grid-row:2/3; background-image:url('images/gallery-salmon-omelette.jpg'), radial-gradient(ellipse at 40% 60%, #6b1f2a, transparent 55%), linear-gradient(150deg,#4a2028,#1c1214);}
+  .g4{grid-column:4/5; grid-row:2/3; background-image:url('images/gallery-waffles.jpg'), radial-gradient(ellipse at 60% 30%, #d3a76b, transparent 55%), linear-gradient(150deg,#6e4a30,#241a12);}
+  .g5{grid-column:1/5; grid-row:3/4; background-image:url('images/gallery-breakfast.jpg'), radial-gradient(ellipse at 40% 70%, #a8664a, transparent 55%), linear-gradient(150deg,#3a2418,#17110d);}
 
   .visit-grid{display:grid; grid-template-columns:1fr 1fr; gap:5rem;}
   .info-block{margin-bottom:2.4rem;}
@@ -185,9 +185,11 @@
   .cta-band .hero-ctas{justify-content:center;}
 
   /* Newsletter signup (Brevo) */
-  .newsletter{background:var(--charcoal-soft); text-align:center;}
+  .newsletter{background:var(--cream); color:var(--ink-on-light); text-align:center;}
+  .newsletter .kicker{justify-content:center; width:100%; color:var(--brass);}
   .newsletter .section-head{margin-left:auto; margin-right:auto; text-align:center;}
-  .newsletter .kicker{justify-content:center; width:100%;}
+  .newsletter .section-head h2 em{color:var(--brass);}
+  .newsletter .section-head p{margin-left:auto; margin-right:auto; color:var(--dim-on-light);}
   .sib-form{max-width:560px; margin:0 auto; background:transparent !important;}
   #sib-form-container{width:100%;}
   #sib-container{
@@ -198,16 +200,16 @@
   }
   #sib-container .sib-form-block{background:transparent !important;}
   #sib-container p{font-family:var(--sans) !important; }
-  #sib-form-container .entry__label{font-family:var(--sans) !important; color:var(--dim-on-dark) !important;}
+  #sib-form-container .entry__label{font-family:var(--sans) !important; color:var(--dim-on-light) !important;}
   #sib-form input.input{
     font-family:var(--sans) !important;
-    background:rgba(244,238,225,0.06) !important;
-    border:1px solid rgba(244,238,225,0.22) !important;
-    color:var(--ink-on-dark) !important;
+    background:#fff !important;
+    border:1px solid rgba(30,24,17,0.18) !important;
+    color:var(--ink-on-light) !important;
     border-radius:2px !important;
     padding:14px 16px !important;
   }
-  #sib-form input.input::placeholder{color:var(--dim-on-dark) !important; opacity:0.6;}
+  #sib-form input.input::placeholder{color:var(--dim-on-light) !important; opacity:0.55;}
   #sib-container .sib-form-block__button{
     font-family:var(--sans) !important;
     letter-spacing:0.02em;
@@ -215,8 +217,8 @@
     transition:background .25s;
   }
   #sib-container .sib-form-block__button:hover{background:var(--brass-bright) !important;}
-  #sib-container .entry__choice span{color:var(--dim-on-dark) !important;}
-  #sib-container .checkbox_tick_positive{border-color:rgba(244,238,225,0.35) !important;}
+  #sib-container .entry__choice span{color:var(--dim-on-light) !important;}
+  #sib-container .checkbox_tick_positive{border-color:rgba(30,24,17,0.3) !important;}
   /* Fallback layout in case sib-styles.css is slow/blocked */
   .sib-hide-loader-icon{display:none !important;}
   #sib-container .sib-form-block__button{display:inline-block !important; width:auto !important; cursor:pointer;}
@@ -632,9 +634,9 @@
       <div class="gallery-grid">
         <div class="g1"><span>Cheers to Brunch</span></div>
         <div class="g2"><span>Weekend Spread</span></div>
-        <div class="g3"><span>Dinner for Two</span></div>
-        <div class="g4"><span>Magic Mushroom Benedict</span></div>
-        <div class="g5"><span>Belgian Waffles</span></div>
+        <div class="g3"><span>Smoked Salmon Omelette</span></div>
+        <div class="g4"><span>Belgian Waffles</span></div>
+        <div class="g5"><span>Classic Breakfast</span></div>
       </div>
     </div>
   </section>
@@ -685,6 +687,7 @@
       <div class="section-head">
         <p class="kicker"><span class="rule"></span>Stay in the Loop</p>
         <h2>Join the <em>list.</em></h2>
+        <p>First look at seasonal menus, events, and specials.</p>
       </div>
 
       <!-- Begin Brevo Form -->
@@ -712,24 +715,10 @@
             <form id="sib-form" method="POST" action="https://e42ee208.sibforms.com/serve/MUIFAEDW-N69dgQcG_IkGphmioJBGUCSHVGZMpqpfOAlXwTx6B_ZJZgDB8Rzjbjc8wHird_GZVtOg_5UUYnhCAaUgRFuRoLQWELVzXxZYyO29wX6RZdmz5pHG13Ad3f9-wsVv8_QM3IsyA582-UP6CosWddSf6ZyZgyzxMu-MkwuCxGacIcqLFWK40OVmXGFMxE3k9hZc6_RiMNQaw==" data-type="subscription">
 
               <div style="padding: 8px 0;">
-                <div class="sib-form-block" style="font-family:var(--display); font-size:32px; text-align:center; color:var(--ink-on-dark); background-color:transparent;">
-                  <p>Join us at Yoona&#39;s</p>
-                </div>
-              </div>
-
-              <div style="padding: 8px 0 20px;">
-                <div class="sib-form-block" style="font-family:var(--sans); font-size:16px; text-align:center; color:var(--dim-on-dark); background-color:transparent;">
-                  <div class="sib-text-form-block">
-                    <p>First look at seasonal menus, events, and specials.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div style="padding: 8px 0;">
                 <div class="sib-input sib-form-block">
                   <div class="form__entry entry_block">
                     <div class="form__label-row ">
-                      <label class="entry__label" style="font-weight: 500; text-align: left; font-family:var(--sans); font-size:14px; text-align:left; color:var(--dim-on-dark);" for="EMAIL" data-required="*">Enter your email address to subscribe</label>
+                      <label class="entry__label" style="font-weight: 500; text-align: left; font-family:var(--sans); font-size:14px; text-align:left; color:var(--dim-on-light);" for="EMAIL" data-required="*">Enter your email address to subscribe</label>
                       <div class="entry__field">
                         <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" value="" placeholder="you@email.com" data-required="true" required />
                       </div>
@@ -747,7 +736,7 @@
                       <div class="entry__choice" style="">
                         <label>
                           <input type="checkbox" class="input_replaced" value="1" id="OPT_IN" name="OPT_IN" required />
-                          <span class="checkbox checkbox_tick_positive" style="margin-left:"></span><span style="font-family:var(--sans); font-size:13px; text-align:left; color:var(--dim-on-dark); background-color:transparent;"><p>I agree to receive emails from Yoona&#39;s Café &amp; Tapas</p><span data-required="*" style="display: inline;" class="entry__label entry__label_optin"></span></span>
+                          <span class="checkbox checkbox_tick_positive" style="margin-left:"></span><span style="font-family:var(--sans); font-size:13px; text-align:left; color:var(--dim-on-light); background-color:transparent;"><p>I agree to receive emails from Yoona&#39;s Café &amp; Tapas</p><span data-required="*" style="display: inline;" class="entry__label entry__label_optin"></span></span>
                         </label>
                       </div>
                     </div>
